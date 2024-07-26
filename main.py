@@ -147,7 +147,7 @@ def train(epoch):
     train_losses.append(epoch_loss)
 
 
-# 验证函数
+# 测试函数
 def test(epoch):
     net.eval()
     running_loss = 0.0
@@ -188,7 +188,6 @@ def test(epoch):
         print(f'Accuracy: {accuracy:.2f}%')
 
 
-# 主程序入口
 if __name__ == '__main__':
     for epoch in range(config['num_epochs']):
         train(epoch)
@@ -203,16 +202,6 @@ if __name__ == '__main__':
     plt.xlabel('Epoch')
     plt.ylabel('Loss')
     plt.title('Training and Testing Loss')
-    plt.legend()
-    plt.grid()
-    plt.show()
-
-    # 绘制测试准确率曲线
-    plt.figure(figsize=(10, 5))
-    plt.plot(epochs, overall_accuracies, label='Test Accuracy', color='green')
-    plt.xlabel('Epoch')
-    plt.ylabel('Accuracy (%)')
-    plt.title('Test Accuracy')
     plt.legend()
     plt.grid()
     plt.show()
